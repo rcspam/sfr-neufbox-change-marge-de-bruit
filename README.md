@@ -1,4 +1,4 @@
-sfr-neufbox-change-ip
+sfr-neufbox-change-marge-bruit
 =====================
 
 A little script to change the IP address of your internet connexion
@@ -15,22 +15,25 @@ Usage
 
 ### Retrieve dependency
 
-First in order to retrieve needed dependency, run:
+First in order to retrieve needed dependency and install sfr-neufbox-change-marge-bruit in your $HOME/bin/, run:
 ```
     make
 ```
 
 ### Configuration
 
-You need to create a file `.credentials` with the following format:
+You need to create a file `.credentials` in your $HOME/bin/sfr-neufbox-change-marge-de-bruit with the following format:
 ```
     login:password
 ```
 These credentials are the same you are using to connect on the web interface of you Neufbox.
 
 ### Run
-
-Just run the script to change the external IP address of your internet connexion.
+Add $HOME/bin to your $PATH.
+Run the script to change the rate noise with a 'rate noise' argument.
+```
+    $ sfr-neufbox-change-marge-de-bruit 40
+```
 
 Dependency
 -----
