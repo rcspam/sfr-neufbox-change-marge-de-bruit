@@ -1,5 +1,5 @@
 LIBS_FOLDER = "$HOME/bin/neufbox_change_bruit"
-TMP_FOLDER="$HOME/bin/neufbox_change_bruit/tmp"
+TMP_FOLDER="$LIBS_FOLDER/tmp"
 
 install: clean
 	cp ./neufbox_change_marge_bruit.sh $(LIBS_FOLDER)/
@@ -12,4 +12,4 @@ install: clean
 
 clean:
 	rm -rf $(LIBS_FOLDER)
-	rm -rf $(TMP_FOLDER)
+	rm -f $HOME/bin/neufbox_change_marge_bruit.sh
