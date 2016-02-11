@@ -9,7 +9,7 @@ This is a forked from denouche/sfr-neufbox-change-ip, so thanks to @denouche
 Requirements
 ------------
 
-This script works with my SFR Neufbox Evolution.
+This script works with the SFR Neufbox Evolution.
 
 We suppose that the box is accessible at `192.168.1.1` (you can modify the script to set a custom IP address).
 
