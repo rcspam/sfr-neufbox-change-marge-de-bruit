@@ -12,6 +12,7 @@ install: clean
 	read -p "Login: " login;\
 	read -p "Pass: " pass;\
 	echo -n $$login:$$pass > $(LIBS_FOLDER)/.credentials
+	echo Installed in $(LIBS_FOLDER)
 
 clean:
 	rm -fr $(LIBS_FOLDER)
