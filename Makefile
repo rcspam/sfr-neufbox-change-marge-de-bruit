@@ -1,4 +1,4 @@
-LIBS_FOLDER = "$(HOME)/bin/neufbox_change_bruit"
+LIBS_FOLDER="$(HOME)/bin/neufbox_change_bruit"
 TMP_FOLDER="$(LIBS_FOLDER)/tmp"
 
 install: clean
@@ -9,8 +9,10 @@ install: clean
 	cp -r templates/ $(LIBS_FOLDER)
 	wget -q -P $(LIBS_FOLDER)/ https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
 	tar -C $(LIBS_FOLDER) -xjf $(LIBS_FOLDER)/*.tar.bz2
-
+	read -p "Login: " login;\
+	read -p "pass: " pass;\
+	echo -n $$login:$$pass > $(LIBS_FOLDER)/.credentials
 
 clean:
-	rm -rf $(LIBS_FOLDER)
+	rm -fr $(LIBS_FOLDER)
 	rm -f "$(HOME)/bin/neufbox_change_marge_bruit.sh"
