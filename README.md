@@ -32,13 +32,10 @@ These credentials are the same you are using to connect on the web interface of 
 Add $HOME/bin to your $PATH.
 Run the script to change the rate noise with a 'rate noise' argument.
 ```
-    $ sfr-neufbox-change-marge-de-bruit 40
+    $ sfr_neufbox_change_marge_bruit.sh 40
 ```
 
 Dependency
 -----
 
 This script is using PhantomJS (http://phantomjs.org/).
-
-The IP address is retrieved usgin http://ipecho.net/
-
