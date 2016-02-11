@@ -13,4 +13,4 @@ install: clean
 
 clean:
 	rm -rf $(LIBS_FOLDER)
-	rm -f "$(HOME)/bin/neufbox_change_marge_bruit.sh
+	rm -f "$(HOME)/bin/neufbox_change_marge_bruit.sh"
