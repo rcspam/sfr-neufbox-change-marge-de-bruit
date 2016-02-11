@@ -1,7 +1,7 @@
 sfr-neufbox-change-marge-bruit
 =====================
-
-A little script to change the IP address of your internet connexion
+This is a forked from denouche/sfr-neufbox-change-ip, so thanks to @denouche
+A little script to change the noise rate of a neufbox
 
 Requirements
 ------------
@@ -15,7 +15,7 @@ Usage
 
 ### Retrieve dependency
 
-First in order to retrieve needed dependency and install sfr-neufbox-change-marge-bruit in your $HOME/bin/, run:
+First in order to install sfr-neufbox-change-marge-bruit in your $HOME/bin/ and retrieve needed dependency, run:
 ```
     make
 ```
