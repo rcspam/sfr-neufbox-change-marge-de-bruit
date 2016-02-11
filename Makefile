@@ -10,7 +10,7 @@ install: clean
 	wget -q -P $(LIBS_FOLDER)/ https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
 	tar -C $(LIBS_FOLDER) -xjf $(LIBS_FOLDER)/*.tar.bz2
 	read -p "Login: " login;\
-	read -p "pass: " pass;\
+	read -p "Pass: " pass;\
 	echo -n $$login:$$pass > $(LIBS_FOLDER)/.credentials
 
 clean:
