@@ -22,7 +22,7 @@ First in order to install sfr-neufbox-change-marge-bruit in your $HOME/bin/ and 
 ```
     make
 ```
-While installation, 'make' ask you the login/password of the neufbox web interface
+During installation, 'make' ask you the login/password of the neufbox web interface
 
 ### Configuration
 
