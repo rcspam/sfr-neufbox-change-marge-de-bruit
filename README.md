@@ -1,6 +1,8 @@
 sfr-neufbox-change-marge-bruit
 =====================
-A little script to change the noise rate of a neufbox
+A little script to change the noise rate of a neufbox.
+
+It is easily adaptable to other request.
 
 This is a forked from denouche/sfr-neufbox-change-ip, so thanks to @denouche
 
@@ -20,10 +22,11 @@ First in order to install sfr-neufbox-change-marge-bruit in your $HOME/bin/ and 
 ```
     make
 ```
+while installation, 'make' ask you the login/password of the neufbox web interface
 
 ### Configuration
 
-You need to create a file `.credentials` in your $HOME/bin/sfr-neufbox-change-marge-de-bruit with the following format:
+You can change the login/password in the file `.credentials` in your $HOME/bin/neufbox_change_bruit with the following format:
 ```
     login:password
 ```
