@@ -94,10 +94,11 @@ main()
     [[ $? ]] && echo "OK" || echo ECHEC
     
     echo -n "Changement de la Marge de Bruit temporaire à $NOISE_RATE_2 ..."
+    POST_AUTH="dsl_mod_p=p&dsl_mod_e=e&dsl_mod_v=v&dsl_lpair=inner&dsl_trellis=on&dsl_snr=$NOISE_RATE_2&dsl_bitswap=on&dsl_sesdrop=off&dsl_sra=off&dsl_diag=off&submit="
     wget -q -O /dev/null \
          --load-cookies $COOKIES_FILE \
          --referer=http://$IP$PAGE_REF \
-         --post-data="dsl_mod_p=p&dsl_mod_e=e&dsl_mod_v=v&dsl_lpair=inner&dsl_trellis=on&dsl_snr=$NOISE_RATE_2&dsl_bitswap=on&dsl_sesdrop=off&dsl_sra=off&dsl_diag=off&submit=" \
+         --post-data="$POST_AUTH" \
          --header='Content-Type: application/x-www-form-urlencoded' \
          http://$IP$PAGE_REF
     [[ $? ]] &&  echo OK || echo ECHEC
@@ -105,14 +106,14 @@ main()
     sleep 3
     
     echo  -n "Changement de la Marge de Bruit à $NOISE_RATE ..."
+    POST_AUTH="dsl_mod_p=p&dsl_mod_e=e&dsl_mod_v=v&dsl_lpair=inner&dsl_trellis=on&dsl_snr=$NOISE_RATE&dsl_bitswap=on&dsl_sesdrop=off&dsl_sra=off&dsl_diag=off&submit="
     wget -q -O /dev/null \
          --load-cookies $COOKIES_FILE \
          --referer=http://$IP$PAGE_REF \
-         --post-data="dsl_mod_p=p&dsl_mod_e=e&dsl_mod_v=v&dsl_lpair=inner&dsl_trellis=on&dsl_snr=$NOISE_RATE&dsl_bitswap=on&dsl_sesdrop=off&dsl_sra=off&dsl_diag=off&submit=" \
+         --post-data="$POST_AUTH" \
          --header='Content-Type: application/x-www-form-urlencoded' \
          http://$IP$PAGE_REF
     [[ $? ]] &&  echo -e "OK\n\t------ Internet sera à nouveau disponible d'ici une trentaine de secondes ------" || echo ECHEC
-    
 }
 
 main
