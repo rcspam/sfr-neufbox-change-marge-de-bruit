@@ -12,5 +12,5 @@ install: clean
 
 
 clean:
-	for i in `ls -d $(LIBS_FOLDER)/*`;do rm -rf "$i";done
+	rm -rf $(LIBS_FOLDER)
 	rm -f "$(HOME)/bin/neufbox_change_marge_bruit.sh
