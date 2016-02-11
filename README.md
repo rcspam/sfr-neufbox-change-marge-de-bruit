@@ -2,7 +2,7 @@ sfr-neufbox-change-marge-bruit
 =====================
 A little script to change the noise rate of a neufbox.
 
-It is easily adaptable to other request.
+It is easily adaptable to other requests.
 
 This is a forked from denouche/sfr-neufbox-change-ip, so thanks to @denouche
 
