@@ -3,6 +3,7 @@ TMP_FOLDER="$HOME/bin/neufbox_change_bruit/tmp"
 
 install: clean
 	cp ./neufbox_change_marge_bruit.sh $(LIBS_FOLDER)/
+	ln -s $HOME/bin/neufbox_change_bruit/neufbox_change_marge_bruit.sh $HOME/bin/neufbox_change_marge_bruit.sh
 	cp ./templates $(LIBS_FOLDER)/
 	wget -q -P $(LIBS_FOLDER)/ https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
 	tar -C $(LIBS_FOLDER) -xjf $(LIBS_FOLDER)/*.tar.bz2
