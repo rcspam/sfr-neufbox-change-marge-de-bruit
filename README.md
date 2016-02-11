@@ -22,11 +22,11 @@ First in order to install sfr-neufbox-change-marge-bruit in your $HOME/bin/ and 
 ```
     make
 ```
-while installation, 'make' ask you the login/password of the neufbox web interface
+While installation, 'make' ask you the login/password of the neufbox web interface
 
 ### Configuration
 
-You can change the login/password in the file `.credentials` in your $HOME/bin/neufbox_change_bruit with the following format:
+You can change the login/password in the file `.credentials` in your install directory ( $HOME/bin/neufbox_change_bruit ) with this following format:
 ```
     login:password
 ```
