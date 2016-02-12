@@ -4,7 +4,7 @@ Un petit script pour changer la marge de bruit sur une neufbox (NB6 pour ma part
 
 Il est facilement adaptable à d'autres requêtes
 
-C'est un fork de denouche/sfr-neufbox-change-ip, donc grand merci à @denouche
+C'est un fork de [denouche/sfr-neufbox-change-ip](https://github.com/denouche/sfr-neufbox-change-ip), donc grand merci à @denouche
 
 Conditions
 ------------
