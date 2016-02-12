@@ -21,7 +21,7 @@ Utilisation
 Afin installer sfr-neufbox-change-marge-bruit dans votre $HOME/bin/ et de télécharger les dépendances nécessaires, exécuter:
 
 ```
-    make
+    $ make
 ```
 
 Lors de l'installation, 'make' vous demandera les login/mot_de_passe de l'interface web de neufbox.
@@ -44,7 +44,7 @@ Ajouter $HOME/bin à votre $PATH.
 Pour changer la marge de bruit, exécuter le script avec sa valeur en argument:
 
 ```
-    $ sfr_neufbox_change_marge_bruit.sh 40
+    $ neufbox_change_marge_bruit.sh 40
 ```
 
 Dépendences
