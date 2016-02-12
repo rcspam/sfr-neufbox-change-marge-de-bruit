@@ -1,45 +1,53 @@
 sfr-neufbox-change-marge-bruit
 =====================
-A little script to change the noise rate of a neufbox.
+Un petit script pour changer la marge de bruit sur une neufbox (NB6 pour ma part)
 
-It is easily adaptable to other requests.
+It is easily adaptable to other requests.Il est facilement adaptable à d'autres requêtes
 
-This is a forked from denouche/sfr-neufbox-change-ip, so thanks to @denouche
+C'est un fork de denouche/sfr-neufbox-change-ip, donc grand merci à @denouche
 
-Requirements
+Conditions
 ------------
 
-This script works with the SFR Neufbox Evolution.
+Ce script fonctionne avec la SFR Neufbox Evolution.
 
-We suppose that the box is accessible at `192.168.1.1` (you can modify the script to set a custom IP address).
+Nous supposons que l'adresse de la box est `192.168.1.1` (vous pouvez modifier le script pour définir une autre adresse IP).
 
-Usage
+Utilisation
 -----
 
-### Retrieve dependency
+### Installation
 
-First in order to install sfr-neufbox-change-marge-bruit in your $HOME/bin/ and retrieve needed dependency, run:
+Afin installer sfr-neufbox-change-marge-bruit dans votre $HOME/bin/ et de télécharger les dépendances nécessaires, exécuter:
+
 ```
     make
 ```
-During installation, 'make' ask you the login/password of the neufbox web interface
+
+Lors de l'installation, 'make' vous demandera les login/mot_de_passe de l'interface web de neufbox.
 
 ### Configuration
 
-You can change the login/password in the file `.credentials` in your install directory ( $HOME/bin/neufbox_change_bruit ) with this following format:
+Vous pouvez modifier le login/mot_de_passe dans le fichiers '.credentials' de votre répertoire d'installation ($HOME/bin/neufbox_change_bruit).
+
+Le format est le suivant:
+
 ```
     login:password
 ```
-These credentials are the same you are using to connect on the web interface of you Neufbox.
 
-### Run
-Add $HOME/bin to your $PATH.
-Run the script to change the rate noise with a 'rate noise' argument.
+Ces identifiants sont les mêmes que vous utilisez pour vous connecter sur l'interface web de vous Neufbox.
+
+### Exécution
+Ajouter $HOME/bin à votre $PATH.
+
+Pour changer la marge de bruit, exécuter le script avec sa valeur en argument:
+
 ```
     $ sfr_neufbox_change_marge_bruit.sh 40
 ```
 
-Dependency
+Dépendences
 -----
 
-This script is using PhantomJS (http://phantomjs.org/).
+Ce script utilise PhantomJS (http://phantomjs.org/).
