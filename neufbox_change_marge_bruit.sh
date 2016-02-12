@@ -11,23 +11,6 @@ TEMPLATES_DIR="/home/rapha/bin/neufbox_change_bruit/templates"
 FILE_HASH="getHash.js"
 PAGE_REF="/maintenance/dsl/config"
 
-getCurrentIp ()
-{
-    wget -q -O - $GET_IP_URL
-}
-
-waitfor () 
-{
-    LIMIT=$1
-    i=0
-    while [ $i -lt $LIMIT ]
-    do
-        echo -n '.'
-        sleep 1
-        i=$((i+1))
-    done
-}
-
 copyAndReplaceTemplate()
 {
     FILE="$TMP/$1"
@@ -68,52 +51,52 @@ main()
     clean
     init
    
-    echo -n "Authentication..."
-    wget -q -O /dev/null \
+    echo -n "Authentication..." | tee $TMP/log
+    wget -O /dev/null \
          --keep-session-cookies --save-cookies=$COOKIES_FILE \
          --referer=http://$IP/login \
          --post-data='action=challenge' \
          --header='Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
          --header='X-Requested-With: XMLHttpRequest' \
-         http://$IP/login
-    [[ $? ]] &&  echo OK || echo ECHEC
+         http://$IP/login &>>$TMP/log
+    [[ $? ]] &&  echo OK | tee -a $TMP/log || echo ECHEC
     ZSID=$(cat $COOKIES_FILE | grep sid | cut -f7)
     
     # création du hash
     copyAndReplaceTemplate $FILE_HASH
     HASH=$($PHANTOM $TMP/$FILE_HASH)
 
-    echo -n "Connection..."
+    echo -n "Connection..." | tee -a $TMP/log
     POST_AUTH="method=passwd&page_ref=$PAGE_REF&zsid=$ZSID&hash=$HASH&login=&password="
-    wget -q -O /dev/null \
+    wget -O /dev/null \
          --load-cookies $COOKIES_FILE \
          --referer=http://$IP/login \
          --post-data="$POST_AUTH" \
          --header='Content-Type: application/x-www-form-urlencoded' \
-         http://$IP/login
-    [[ $? ]] && echo "OK" || echo ECHEC
+         http://$IP/login &>>$TMP/log
+    [[ $? ]] && echo "OK" | tee -a $TMP/log || echo ECHEC
     
-    echo -n "Changement de la Marge de Bruit temporaire à $NOISE_RATE_2 ..."
+    echo -n "Changement de la Marge de Bruit temporaire à $NOISE_RATE_2 ..." | tee -a $TMP/log
     POST_AUTH="dsl_mod_p=p&dsl_mod_e=e&dsl_mod_v=v&dsl_lpair=inner&dsl_trellis=on&dsl_snr=$NOISE_RATE_2&dsl_bitswap=on&dsl_sesdrop=off&dsl_sra=off&dsl_diag=off&submit="
-    wget -q -O /dev/null \
+    wget -O /dev/null \
          --load-cookies $COOKIES_FILE \
          --referer=http://$IP$PAGE_REF \
          --post-data="$POST_AUTH" \
          --header='Content-Type: application/x-www-form-urlencoded' \
-         http://$IP$PAGE_REF
-    [[ $? ]] &&  echo OK || echo ECHEC
+         http://$IP$PAGE_REF &>>$TMP/log
+    [[ $? ]] &&  echo OK | tee -a $TMP/log || echo ECHEC
     
     sleep 3
     
-    echo  -n "Changement de la Marge de Bruit à $NOISE_RATE ..."
+    echo  -n "Changement de la Marge de Bruit à $NOISE_RATE ..." | tee -a $TMP/log
     POST_AUTH="dsl_mod_p=p&dsl_mod_e=e&dsl_mod_v=v&dsl_lpair=inner&dsl_trellis=on&dsl_snr=$NOISE_RATE&dsl_bitswap=on&dsl_sesdrop=off&dsl_sra=off&dsl_diag=off&submit="
-    wget -q -O /dev/null \
+    wget -O /dev/null \
          --load-cookies $COOKIES_FILE \
          --referer=http://$IP$PAGE_REF \
          --post-data="$POST_AUTH" \
          --header='Content-Type: application/x-www-form-urlencoded' \
-         http://$IP$PAGE_REF
-    [[ $? ]] &&  echo -e "OK\n\t------ Internet sera à nouveau disponible d'ici une trentaine de secondes ------" || echo ECHEC
+         http://$IP$PAGE_REF &>>$TMP/log
+    [[ $? ]] &&  echo -e "OK\n\t------ Internet sera à nouveau disponible d'ici une trentaine de secondes ------" | tee -a $TMP/log || echo ECHEC
 }
 
 main
